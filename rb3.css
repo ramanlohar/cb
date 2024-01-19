@@ -1,0 +1,65 @@
+/* Apply background color to the heading and set text color */
+.head {
+    background-color: #4CAF50; /* Green background color */
+    color: #ffffff; /* White text color */
+}
+
+/* Style the top heading */
+.topheading {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+/* Style the top heading2 */
+.topheading2 {
+    text-align: left;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333; /* Dark text color */
+}
+
+/* Style the topheading2 paragraphs */
+#panchaya_name, #panchaya_year {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+/* Highlight the table header cells */
+#combinedTable th {
+    background-color: #4CAF50; /* Green background color */
+    color: #ffffff; /* White text color */
+}
+
+/* Style the "योग", "आय", "पूर्व शेष", "व्यय", "शेष" cells */
+td[rowspan="3"] {
+    color: black;
+    font-style: italic;
+    font-weight: bold;
+}
+
+/* Style the "योग", "आय", "पूर्व शेष", "व्यय", "शेष" row background color */
+.rowblack {
+    background-color: #FFEB3B; /* Lighter yellow-green background color */
+}
+
+/* Set specific width for columns 4 and 13 */
+#combinedTable td:nth-child(4),
+#combinedTable td:nth-child(13) {
+    width: 400px;
+}
+
+/* Style the edit and delete buttons */
+.btn_edit_del {
+    background-color: #007BFF; /* Blue background color */
+    color: #ffffff; /* White text color */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Add margin to the edit button */
+#Edit_button {
+    margin-right: 5px;
+}

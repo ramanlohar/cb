@@ -1,0 +1,124 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.layout {
+  /* display: flex; */
+  justify-content: space-between;
+  padding: 20px;
+  /* width: 150%; */
+}
+
+.rokad-layout {
+  background-color: #e0ffee;
+  /* Lighter yellow-green color */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px 0px 0px 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: auto;
+}
+.bahi-layout {
+  background-color: #e0ffee;
+  /* Lighter yellow-green color */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 0px 10px 10px 0px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: auto;
+}
+
+.topheading {
+  text-align: center;
+  /* background-color: rebeccapurple; */
+}
+
+.topheading2 {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.topheading2 h3 {
+  margin-right: 17px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #000000;
+  text-align: center;
+}
+
+th {
+  background-color: #c0ffee;
+  /* Lighter yellow-green color for th */
+}
+
+/* Add padding to the right of the eighth column */
+
+p#panchaya_name {
+  margin: 0;
+}
+
+.btn_edit_del {
+  background-color: transparent;
+  width: auto;
+  border: none;
+  outline: none;
+  color: red;
+  font-size: medium;
+}
+#Edit_button {
+  color: black;
+}
+td:nth-child(4) {
+  width: 300px;
+  font-size: 14px;
+  /* background-color: red; */
+}
+td:nth-child(13) {
+    width: 300px;
+    /* background-color: red; */
+  }
+  td:nth-child(3) {
+    width: 30px;
+    /* background-color: red; */
+  }
+  td:nth-child(12) {
+    width: 30px;
+    /* td.style.transform = "rotate(-90deg)"; */
+
+    /* background-color: red; */
+  }
+
+  
+/* Target the Vyay section cells by text content */
+/* Add this CSS to your styles */
+
+.rowblack{
+    
+    background-color: #9af299;
+}
+
+/* Add more styles for other rows as needed */
+
+.highlight{
+    background-color: rgb(210, 202, 218);
+    /* background-color: #1fff1b; */
+    /* font-style: italic; */
+}
+th span {
+    display: inline-block;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    white-space: nowrap;
+  }
+  

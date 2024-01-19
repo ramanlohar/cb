@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+ .layout {
+    display: flex;
+    /* justify-content: space-between; */
+    background-color: #e0ffee;
+    width: 1860px;
+    justify-content: center;
+    padding: 20px;
+} 
+
+ .rokad-layout {
+    background-color: #e0ffee;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: auto;
+    
+  }
+  
+  .topheading {
+    text-align: center;
+  }
+  
+  .topheading2 {
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+  
+  .topheading2 h3 {
+    margin-right: 17px;
+  }
+  
+  table {
+    width: 1800px;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border: 2px solid #000000;
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #c0ffee;
+  }
+  
+  p#panchaya_name {
+    margin: 0;
+  }
+  
+  .btn_edit_del {
+    background-color: transparent;
+    width: auto;
+    border: none;
+    outline: none;
+    color: red;
+    font-size: medium;
+  }
+  
+  #Edit_button {
+    color: black;
+  }
+  
+  th:nth-child(4),
+  th:nth-child(13),
+  td:nth-child(4),
+  td:nth-child(13) {
+    width: 300px;
+  }
+  
+  td:nth-child(3),
+  td:nth-child(12),
+  th:nth-child(17) {
+    max-width: 30px;
+  }
+
+  .eightth,td:nth-child(8){
+    border-right: 6px double black;
+  }
+
+ #combinedTable td:nth-child(3) {
+    width: 50px; /* Adjust the width as needed */
+}
+  
+  .rowblack {
+    background-color: #9af299;
+  }
+  
+  .highlight {
+    background-color: rgb(210, 202, 218);
+    font-style: italic;
+  }
+  
+  th span {
+    display: inline-block;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    white-space: nowrap;
+  }
+  /* Add any additional styles as needed */
+  #Praptiya{
+    width: 1000px;
+  }
+  /* tr:hover{
+    /* background-color: antiquewhite; 
+  } */
+.add-btn{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+
+}
+  .add-btn button{
+    background-color: greenyellow;
+    width: 70px;
+    height: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

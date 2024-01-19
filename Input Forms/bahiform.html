@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bahi Form</title>
+    <link rel="stylesheet" href="forms.css">
+</head>
+<body>
+    <form id="rokadForm">
+        <h2>Bahi</h2>
+        <div class="f-div">
+            <label for="date">Date</label>
+            <input type="date" id="date">
+        </div>
+        <div class="f-div">
+            <label for="s-no">S.no</label>
+            <input type="number" id="s-no">
+        </div>
+        <div class="f-div">
+            <label for="particular">Particular</label>
+            <input type="text" id="particular">
+        </div>
+        <div class="f-div">
+            <label for="nagad-rashi">Nagad Rashi</label>
+            <input type="text" id="nagad-rashi">
+        </div>
+        <div class="f-div">
+            <label for="bank-rashi">Bank Rashi</label>
+            <input type="text" id="bank-rashi">
+        </div>
+        <div class="f-div">
+            <label for="bajt-ls">Bajt LS</label>
+            <input type="text" id="bajt-ls">
+        </div>
+        <div class="f-div">
+            <label for="signature">Signature</label>
+            <input type="text" id="signature">
+        </div>
+        <button type="button" id="submit-btn" onclick="saveData()">Save</button>
+    </form>
+
+    <script>
+        function saveData() {
+            // Get form values
+            var date = document.getElementById('date').value;
+            var sNo = document.getElementById('s-no').value;
+            var particular = document.getElementById('particular').value;
+            var nagadRashi = document.getElementById('nagad-rashi').value;
+            var bankRashi = document.getElementById('bank-rashi').value;
+            var bajtLs = document.getElementById('bajt-ls').value;
+            var signature = document.getElementById('signature').value;
+            
+            //Get value from localstorage
+            var bahiformcount = localStorage.getItem("bahiformcount");
+            bahiformcount = ++bahiformcount;
+
+            // Create an object to store the form data
+            var formData = {
+                'Date': date,
+                'S.no': bahiformcount,
+                'Particular': particular,
+                'Nagad Rashi': nagadRashi,
+                'Bank Rashi': bankRashi,
+                'Bajt LS': bajtLs,
+                'Signature': signature
+            };
+
+            // Convert the object to a JSON string
+            var formDataJSON = JSON.stringify(formData);
+
+            // Store the JSON string in local storage
+            localStorage.setItem('bahiformcount', bahiformcount);
+            bahiData = "bahiData" + bahiformcount;
+            localStorage.setItem(bahiData , formDataJSON);
+
+            alert('Data saved to local storage!');
+        }
+    </script>
+</body>
+</html>

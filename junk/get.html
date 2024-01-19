@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Local Storage Viewer</h2>
+    <pre id="localStorageData"></pre>
+
+    <script>
+        // Retrieve data from local storage
+        const localStorageDataDiv = document.getElementById('localStorageData');
+        const localStorageData = { ...localStorage };
+        
+        // Display data in JSON format
+        localStorageDataDiv.textContent = JSON.stringify(localStorageData, null, 2);
+    </script>
+</body>
+</html>
