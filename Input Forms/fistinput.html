@@ -36,6 +36,11 @@
     </form>
 
     <script>
+
+var rbFormCounthhhh =  localStorage.getItem('rbFormCount');
+        if(rbFormCounthhhh != "" || rbFormCounthhhh === null || rbFormCounthhhh > 0){
+            loadwindow();
+        }
         // Function to save data to local storage
         function saveData() {
             saveData2();
