@@ -2,15 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cash Book</title>
-    <link rel="stylesheet" href="rb4.css">
+    <link rel="stylesheet" href="rb4.css" />
     <script src="https://kit.fontawesome.com/8d4098fe32.js" crossorigin="anonymous"></script>
 </head>
 
-
 <body>
+    <!-- <div id="confirmation-box">
+        <h2>Do you want to delete it?</h2>
+        <button class="yes" onclick="confirmAction(true)">Yes</button>
+        <button class="no" onclick="confirmAction(false)">No</button>
+    </div> -->
+
     <header>
         <h1>Welcome</h1>
         <div class="head">
@@ -19,9 +24,9 @@
             </div>
             <div class="topheading2">
                 <h3>कार्यालय</h3>
-                <p id="panchaya_name"> Dhamniya Diwan</p>
+                <p id="panchaya_name">Dhamniya Diwan</p>
                 <h4>&nbsp;&nbsp;&nbsp;वित्तीय वर्ष -</h4>
-                <p id="panchaya_year"> Dhamniya Diwan</p>
+                <p id="panchaya_year">Dhamniya Diwan</p>
             </div>
         </div>
     </header>
@@ -32,31 +37,33 @@
     </div>
     <div class="layout">
         <div class="rokad-layout">
-            
-            
             <table id="combinedTable">
                 <tr id="ttrth">
-                    <th rowspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;दिनांक&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th rowspan="2">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;दिनांक&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </th>
                     <th rowspan="2"><span>प्राप्ति क्रमांक</span></th>
                     <th rowspan="2">खाता पन्ना</th>
-                    <th rowspan="2" id="Praptiya" style="width: 20%;">
-
+                    <th rowspan="2" id="Praptiya" style="width: 20%">
                         प्राप्तियों के ब्यौरे
-
                     </th>
                     <th colspan="3">प्राप्तियां</th>
                     <th class="eightth" rowspan="2">हस्ताक्षर</th>
-                    <th rowspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;दिनांक&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th rowspan="2">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;दिनांक&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </th>
                     <th rowspan="2"><span>व्हाउचर क्र</span></th>
                     <th rowspan="2"><span>E.P.N क्र.</span></th>
                     <th rowspan="2">खाता पन्ना</th>
-                    <th rowspan="2" style="width: 20%;">व्यय के ब्यौरे</th>
+                    <th rowspan="2" style="width: 20%">व्यय के ब्यौरे</th>
                     <th colspan="3">व्यय का विवरण</th>
                     <th rowspan="2">हस्ताक्षर</th>
-                    <th rowspan="2">&nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                    <th rowspan="2">
+                        &nbsp;&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;&nbsp;
+                    </th>
                 </tr>
                 <tr>
-                    <th style="width: 30px;">नकद राशि</th>
+                    <th style="width: 30px">नकद राशि</th>
                     <th>बैंक राशि</th>
                     <th>बजट का लेखा शीर्ष</th>
                     <th>नकद राशि</th>
@@ -83,29 +90,22 @@
                     <th>17</th>
                     <th>18</th>
                 </tr>
-
             </table>
         </div>
     </div>
-
-
 
     <script>
         var reloadhome3 = localStorage.getItem("reloadhome3");
 
         if (reloadhome3 < 1) {
-            localStorage.setItem("reloadhome3" , 1);
+            localStorage.setItem("reloadhome3", 1);
             location.reload();
-
         }
-
 
         var nagadpurve_Shesh = localStorage.setItem("nagadpurve_Shesh", 0);
         var bankpurve_Shesh = localStorage.setItem("bankpurve_Shesh", 0);
 
         localStorage.setItem("contvalueccc", 0);
-
-
 
         function editrowdata(form_id) {
             localStorage.setItem("Edit_Form_Id", form_id);
@@ -114,31 +114,65 @@
         }
 
         function deletefromrow(form_id) {
-            var userConfirmed = confirm("Do you want to delete it?");
+  const bodyElement = document.querySelector('body');
+  alert("hello");
 
-            if (userConfirmed) {
-                localStorage.removeItem(form_id);
-            }
-        }
+  // Create confirmation box
+  var confirmationBox = document.createElement("div");
+  confirmationBox.id = "confirmation-box";
+  confirmationBox.innerHTML = `
+    <h2>Do you want to delete it?</h2>
+    <button class="yes" onclick="confirmAction(true, '${form_id}')">Yes</button>
+    <button class="no" onclick="confirmAction(false)">No</button>
+  `;
+
+  // Append the confirmation box as the first child of the body
+  bodyElement.insertBefore(confirmationBox, bodyElement.firstChild);
+}
+
+function confirmAction(isConfirmed, formId) {
+  // Handle the user's choice
+  if (isConfirmed) {
+    // User clicked 'Yes'
+    alert("You chose to delete."); // Replace this with your actual delete logic
+    localStorage.removeItem(formId);
+    location.reload();
+  } else {
+    // User clicked 'No'
+    alert("You chose not to delete.");
+  }
+
+  // Remove the confirmation box after handling the choice
+  var confirmationBox = document.getElementById("confirmation-box");
+  confirmationBox.remove();
+}
+
+
 
 
         function sortDataByDate(data) {
             return data.sort(function (a, b) {
-                var dateA = new Date(a['Date'] || a['date']);
-                var dateB = new Date(b['Date'] || b['date']);
+                var dateA = new Date(a["Date"] || a["date"]);
+                var dateB = new Date(b["Date"] || b["date"]);
                 return dateA - dateB;
             });
         }
 
-        function insertBlankRow(table, numRows, cellCount, date, Formid, R_BANK_RASHI) {
+        function insertBlankRow(
+            table,
+            numRows,
+            cellCount,
+            date,
+            Formid,
+            R_BANK_RASHI
+        ) {
             for (var i = 0; i < 0; i++) {
                 var blankRow = table.insertRow(-1);
                 for (var j = -1; j < cellCount; j++) {
                     var cell = blankRow.insertCell(j);
-                    cell.innerHTML = "";  // Leave cells empty for a blank row
+                    cell.innerHTML = ""; // Leave cells empty for a blank row
                 }
             }
-
 
             // avrokadbahidisplayData(date);
             caluculatingvalues(date, Formid, R_BANK_RASHI);
@@ -147,7 +181,7 @@
                 var blankRow = table.insertRow(-1);
                 for (var j = -1; j < cellCount; j++) {
                     var cell = blankRow.insertCell(j);
-                    cell.innerHTML = "";  // Leave cells empty for a blank row
+                    cell.innerHTML = ""; // Leave cells empty for a blank row
                 }
             }
         }
@@ -165,41 +199,36 @@
                 }
             }
 
-
             formDataArray = sortDataByDate(formDataArray);
 
-            var table = document.getElementById('combinedTable');
+            var table = document.getElementById("combinedTable");
             var prevDate = null;
 
             for (var i = 0; i < formDataArray.length; i++) {
-                var currentDate = formDataArray[i]['Date'];
+                var currentDate = formDataArray[i]["Date"];
 
-                Formid = formDataArray[i]['Form_Id'] || "";
-                R_BANK_RASHI = formDataArray[i]['r_Bank Rashi'];
+                Formid = formDataArray[i]["Form_Id"] || "";
+                R_BANK_RASHI = formDataArray[i]["r_Bank Rashi"];
 
                 if (prevDate && currentDate !== prevDate) {
-                    insertBlankRow(table, 7, 17, prevDate, Formid, R_BANK_RASHI);  // Adjust cell count accordingly
+                    insertBlankRow(table, 7, 17, prevDate, Formid, R_BANK_RASHI); // Adjust cell count accordingly
                 }
 
                 console.log(formType + "Data" + i);
-
-
-
 
                 var row = table.insertRow(-1);
 
                 var cell = row.insertCell(0);
                 cell.innerHTML = convertDateFormat(currentDate);
 
-
                 if (Formid === "rbData1" || Formid == "rbData1") {
-
                     var cell = row.insertCell(1);
                     cell.innerHTML = "";
-
                 } else {
-
-                    if (formDataArray[i]['r_Particular'] != "" || formDataArray[i]['r_Particular'] !== "") {
+                    if (
+                        formDataArray[i]["r_Particular"] != "" ||
+                        formDataArray[i]["r_Particular"] !== ""
+                    ) {
                         var bakiseril = localStorage.getItem("rokadsno");
                         bakiseril++;
                         var cell = row.insertCell(1);
@@ -210,42 +239,37 @@
                         cell.innerHTML = "";
                         // cell.innerHTML = formDataArray[i]['S.no'];
                     }
-
                 }
 
-
-
-
-
                 var cell = row.insertCell(2);
-                cell.innerHTML = formDataArray[i]['r_AKMMKP'];
+                cell.innerHTML = formDataArray[i]["r_AKMMKP"];
 
                 var cell = row.insertCell(3);
-                cell.innerHTML = formDataArray[i]['r_Particular'];
+                cell.innerHTML = formDataArray[i]["r_Particular"];
 
                 var cell = row.insertCell(4);
-                cell.innerHTML = formDataArray[i]['r_Nagad Rashi'];
+                cell.innerHTML = formDataArray[i]["r_Nagad Rashi"];
 
                 var cell = row.insertCell(5);
-                cell.innerHTML = formDataArray[i]['r_Bank Rashi'];
+                cell.innerHTML = formDataArray[i]["r_Bank Rashi"];
 
                 var cell = row.insertCell(6);
-                cell.innerHTML = formDataArray[i]['r_Bajt LS'];
+                cell.innerHTML = formDataArray[i]["r_Bajt LS"];
 
                 var cell = row.insertCell(7);
-                cell.innerHTML = formDataArray[i]['Signature'] || "";
+                cell.innerHTML = formDataArray[i]["Signature"] || "";
 
                 var cell = row.insertCell(8);
-                cell.innerHTML = convertDateFormat(currentDate);;
+                cell.innerHTML = convertDateFormat(currentDate);
 
                 if (Formid === "rbData1" || Formid == "rbData1") {
-
                     var cell = row.insertCell(9);
                     cell.innerHTML = "";
-
                 } else {
-
-                    if (formDataArray[i]['b_Particular'] != "" || formDataArray[i]['b_Particular'] !== "") {
+                    if (
+                        formDataArray[i]["b_Particular"] != "" ||
+                        formDataArray[i]["b_Particular"] !== ""
+                    ) {
                         var bakiseril = localStorage.getItem("bakisno");
                         bakiseril++;
                         var cell = row.insertCell(9);
@@ -258,26 +282,25 @@
                     }
                 }
                 var cell = row.insertCell(10);
-                cell.innerHTML = formDataArray[i]['b_E.P.N No.'];
+                cell.innerHTML = formDataArray[i]["b_E.P.N No."];
 
                 var cell = row.insertCell(11);
-                cell.innerHTML = formDataArray[i]['b_AKMMKP'];
+                cell.innerHTML = formDataArray[i]["b_AKMMKP"];
 
                 var cell = row.insertCell(12);
-                cell.innerHTML = formDataArray[i]['b_Particular'] || "";
+                cell.innerHTML = formDataArray[i]["b_Particular"] || "";
 
                 var cell = row.insertCell(13);
-                cell.innerHTML = formDataArray[i]['b_Nagad Rashi'] || "";
+                cell.innerHTML = formDataArray[i]["b_Nagad Rashi"] || "";
 
                 var cell = row.insertCell(14);
-                cell.innerHTML = formDataArray[i]['b_Bank Rashi'] || "";
+                cell.innerHTML = formDataArray[i]["b_Bank Rashi"] || "";
 
                 var cell = row.insertCell(15);
-                cell.innerHTML = formDataArray[i]['b_Bajt LS'] || "";
+                cell.innerHTML = formDataArray[i]["b_Bajt LS"] || "";
 
                 var cell = row.insertCell(16);
-                cell.innerHTML = formDataArray[i]['Signature'] || "";
-
+                cell.innerHTML = formDataArray[i]["Signature"] || "";
 
                 var cell = row.insertCell(17);
                 cell.innerHTML = `<button class="btn_edit_del" id="Edit_button" onclick="editrowdata('${Formid}')"><i class="fa-solid fa-pen"></i></button> <button class="btn_edit_del" id="delete_button" onclick="deletefromrow('${Formid}');"><i class="fa-solid fa-trash-can" for="Edit_button"></i></button>`;
@@ -286,11 +309,8 @@
             }
         }
 
-
-
-
         function calculateAndStoreTotal() {
-            var formTypes = ['rb'];
+            var formTypes = ["rb"];
 
             formTypes.forEach(function (formType) {
                 var formCount = localStorage.getItem(formType + "FormCount");
@@ -301,18 +321,18 @@
 
                     if (formData) {
                         formData = JSON.parse(formData);
-                        var currentDate = formData['Date'];
-                        var r_nagadAmount = parseFloat(formData['r_Nagad Rashi']) || 0;
-                        var r_bankAmount = parseFloat(formData['r_Bank Rashi']) || 0;
-                        var b_nagadAmount = parseFloat(formData['b_Nagad Rashi']) || 0;
-                        var b_bankAmount = parseFloat(formData['b_Bank Rashi']) || 0;
+                        var currentDate = formData["Date"];
+                        var r_nagadAmount = parseFloat(formData["r_Nagad Rashi"]) || 0;
+                        var r_bankAmount = parseFloat(formData["r_Bank Rashi"]) || 0;
+                        var b_nagadAmount = parseFloat(formData["b_Nagad Rashi"]) || 0;
+                        var b_bankAmount = parseFloat(formData["b_Bank Rashi"]) || 0;
 
                         if (!totalData[currentDate]) {
                             totalData[currentDate] = {
                                 r_nagadTotal: 0,
                                 r_bankTotal: 0,
                                 b_nagadTotal: 0,
-                                b_bankTotal: 0
+                                b_bankTotal: 0,
                             };
                         }
 
@@ -326,24 +346,36 @@
                 // Store the calculated totals in localStorage for each date
                 Object.keys(totalData).forEach(function (date) {
                     var dateTotal = totalData[date];
-                    localStorage.setItem(formType + 'TotalData_' + date, JSON.stringify(dateTotal));
+                    localStorage.setItem(
+                        formType + "TotalData_" + date,
+                        JSON.stringify(dateTotal)
+                    );
                 });
             });
         }
 
-
-        function avrokadbahidisplayData(aayN, aayB, aayNPurvShesh, aayBPurvShesh, aayNyog, aayByog, vyayN, vyayB, vyayNPurvShesh, vyayBPurvShesh, vyayNyog, vyayByog, firstid) {
-
-
-            var table = document.getElementById('combinedTable');
+        function avrokadbahidisplayData(
+            aayN,
+            aayB,
+            aayNPurvShesh,
+            aayBPurvShesh,
+            aayNyog,
+            aayByog,
+            vyayN,
+            vyayB,
+            vyayNPurvShesh,
+            vyayBPurvShesh,
+            vyayNyog,
+            vyayByog,
+            firstid
+        ) {
+            var table = document.getElementById("combinedTable");
             var row = table.insertRow(-1);
             var row2 = table.insertRow(-1);
             var row3 = table.insertRow(-1);
             if (firstid == 1) {
-
                 var date = "first_1";
             } else {
-
                 var date = "";
             }
 
@@ -406,10 +438,8 @@
             //row 2
 
             if (firstid == 1) {
-
                 var date = "first_2";
             } else {
-
                 var date = "";
             }
 
@@ -452,7 +482,6 @@
             var cell = row2.insertCell(12);
             cell.innerHTML = "शेष";
 
-
             var cell = row2.insertCell(13);
             cell.innerHTML = vyayNPurvShesh;
 
@@ -470,10 +499,8 @@
 
             // row 3
             if (firstid == 1) {
-
                 var date = "first_3";
             } else {
-
                 var date = "";
             }
 
@@ -530,16 +557,11 @@
 
             var cell = row3.insertCell(17);
             cell.innerHTML = "";
-
-
         }
 
-
         function caluculatingvalues(date, Formid, R_BANK_RASHI) {
-
             var nagadpurve_Shesh = localStorage.getItem("nagadpurve_Shesh") || 0;
             var bankpurve_Shesh = localStorage.getItem("bankpurve_Shesh") || 0;
-
 
             var rbTotalData_date = "rbTotalData_" + date;
             var rbTotalData = localStorage.getItem(rbTotalData_date);
@@ -556,16 +578,16 @@
 
                 //r_nagadAmount
 
-
-
                 aayN = r_nagadAmount;
                 aayB = r_bankAmount;
 
                 aayNPurvShesh = nagadpurve_Shesh;
                 aayBPurvShesh = bankpurve_Shesh;
 
-                nagadpurve_Shesh = parseFloat(nagadpurve_Shesh) + parseFloat(r_nagadAmount);
-                bankpurve_Shesh = parseFloat(bankpurve_Shesh) + parseFloat(r_bankAmount);
+                nagadpurve_Shesh =
+                    parseFloat(nagadpurve_Shesh) + parseFloat(r_nagadAmount);
+                bankpurve_Shesh =
+                    parseFloat(bankpurve_Shesh) + parseFloat(r_bankAmount);
 
                 localStorage.setItem("nagadpurve_Shesh", nagadpurve_Shesh);
                 localStorage.setItem("bankpurve_Shesh", bankpurve_Shesh);
@@ -573,29 +595,25 @@
                 aayNyog = nagadpurve_Shesh;
                 aayByog = bankpurve_Shesh;
 
-
-
                 vyayN = b_nagadAmount;
                 vyayB = b_bankAmount;
 
                 var nagadpurve_Shesh = localStorage.getItem("nagadpurve_Shesh") || 0;
                 var bankpurve_Shesh = localStorage.getItem("bankpurve_Shesh") || 0;
 
-
-
                 vyayNyog = nagadpurve_Shesh;
                 vyayByog = bankpurve_Shesh;
 
-                nagadpurve_Shesh = parseFloat(nagadpurve_Shesh) - parseFloat(b_nagadAmount);
-                bankpurve_Shesh = parseFloat(bankpurve_Shesh) - parseFloat(b_bankAmount);
+                nagadpurve_Shesh =
+                    parseFloat(nagadpurve_Shesh) - parseFloat(b_nagadAmount);
+                bankpurve_Shesh =
+                    parseFloat(bankpurve_Shesh) - parseFloat(b_bankAmount);
 
                 localStorage.setItem("nagadpurve_Shesh", nagadpurve_Shesh);
                 localStorage.setItem("bankpurve_Shesh", bankpurve_Shesh);
 
                 vyayNPurvShesh = nagadpurve_Shesh;
                 vyayBPurvShesh = bankpurve_Shesh;
-
-
 
                 var changeddateformate = convertDateFormat(date);
 
@@ -606,10 +624,10 @@
                 panchaya_data2 = JSON.parse(panchaya_name1);
 
                 // Access the value associated with the property 'b_Bank Rashi' in the parsed object
-                panchaya_data23 = panchaya_data2['Purv_Rashi'];
-                Npanchaya_data23 = panchaya_data2['NPurv_Rashi'];
+                panchaya_data23 = panchaya_data2["Purv_Rashi"];
+                Npanchaya_data23 = panchaya_data2["NPurv_Rashi"];
 
-                console.log(panchaya_data23 + "panchaya_data203")
+                console.log(panchaya_data23 + "panchaya_data203");
                 // console.log(Formid + "hello");
 
                 // if (Formid === "rbData1" || Formid == "rbData1" && R_BANK_RASHI == aayB) {
@@ -622,9 +640,7 @@
                     // aayBPurvShesh = panchaya_data23;
                     // aayNPurvShesh = Npanchaya_data23;
                 } else {
-
                 }
-
 
                 treecounttwo = localStorage.getItem("treecounttwo");
                 if (treecounttwo == 0) {
@@ -632,65 +648,90 @@
                     localStorage.setItem("aayb", aayB);
                     firstid = 1;
                     localStorage.setItem("treecounttwo", 1);
-                }
-                else {
+                } else {
                     firstid = 0;
                 }
-
-
 
                 var treecount = localStorage.getItem("treecount", 0);
 
                 if (treecount == 0) {
-                    avrokadbahidisplayData(aayNPurvShesh, aayBPurvShesh, aayN, aayB, aayNyog, aayByog, vyayN, vyayB, vyayNPurvShesh, vyayBPurvShesh, vyayNyog, vyayByog, firstid);
+                    avrokadbahidisplayData(
+                        aayNPurvShesh,
+                        aayBPurvShesh,
+                        aayN,
+                        aayB,
+                        aayNyog,
+                        aayByog,
+                        vyayN,
+                        vyayB,
+                        vyayNPurvShesh,
+                        vyayBPurvShesh,
+                        vyayNyog,
+                        vyayByog,
+                        firstid
+                    );
                     localStorage.setItem("treecount", 1);
 
                     //aayBPurvShesh
                     //aayN
-
                 } else {
-
-                    avrokadbahidisplayData(aayN, aayB, aayNPurvShesh, aayBPurvShesh, aayNyog, aayByog, vyayN, vyayB, vyayNPurvShesh, vyayBPurvShesh, vyayNyog, vyayByog, firstid);
+                    avrokadbahidisplayData(
+                        aayN,
+                        aayB,
+                        aayNPurvShesh,
+                        aayBPurvShesh,
+                        aayNyog,
+                        aayByog,
+                        vyayN,
+                        vyayB,
+                        vyayNPurvShesh,
+                        vyayBPurvShesh,
+                        vyayNyog,
+                        vyayByog,
+                        firstid
+                    );
                 }
-
-
             }
         }
 
-
         function convertDateFormat(inputDate) {
             // Split the input date into year, month, and day
-            const [year, month, day] = inputDate.split('-');
+            const [year, month, day] = inputDate.split("-");
 
             // Create a new date object with the given values
             const convertedDate = new Date(year, month - 1, day);
 
             // Format the date as "DD-MM-YYYY"
-            const formattedDate = `${convertedDate.getDate().toString().padStart(2, '0')}-${(convertedDate.getMonth() + 1).toString().padStart(2, '0')}-${convertedDate.getFullYear()}`;
+            const formattedDate = `${convertedDate
+                .getDate()
+                .toString()
+                .padStart(2, "0")}-${(convertedDate.getMonth() + 1)
+                    .toString()
+                    .padStart(2, "0")}-${convertedDate.getFullYear()}`;
 
             return formattedDate;
         }
 
         function pnyd() {
-
             var panchaya_name = localStorage.getItem("karyalayData");
 
-            panchaya_data = JSON.parse(panchaya_name)
+            panchaya_data = JSON.parse(panchaya_name);
 
-
-            document.getElementById("panchaya_name").innerText = panchaya_data['Panchayat Name'];
-            document.getElementById("panchaya_year").innerText = panchaya_data['Year'];
+            document.getElementById("panchaya_name").innerText =
+                panchaya_data["Panchayat Name"];
+            document.getElementById("panchaya_year").innerText =
+                panchaya_data["Year"];
         }
 
         function baki() {
             localStorage.setItem("rokadsno", 0);
             localStorage.setItem("bakisno", 0);
-            rokadbahidisplayData('rb');
+            rokadbahidisplayData("rb");
             // rokadbahidisplayData('bahi');
         }
 
         function addbtn() {
-            window.location.href = "Input Forms/rokadform.html"
+            window.location.href = "Input Forms/rokadform.html";
         }
 
         pnyd();
@@ -698,12 +739,8 @@
         calculateAndStoreTotal();
         localStorage.setItem("treecount", 0);
         localStorage.setItem("treecounttwo", 0);
-
-
-
     </script>
     <script src="cssscipt.js"></script>
-
 </body>
 
 </html>

@@ -113,7 +113,9 @@ p#panchaya_name {
 
 #Edit_button {
     color: black;
-    padding: 10px;
+    margin-right: 20px;
+    padding: 5px;
+    background-color: aqua;
 }
 th:nth-child(4),
 th:nth-child(13),
@@ -127,6 +129,10 @@ td:nth-child(3),
 td:nth-child(12),
 th:nth-child(17) {
     max-width: 30px;
+}
+
+td:nth-child(18){
+    min-width: 100px;
 }
 
 .eightth,
@@ -166,3 +172,37 @@ th span {
         width: 100%;
     }
 }
+#confirmation-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; /* Adjust the width as needed */
+    background-color: #ff0000;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    z-index: 10;
+  }
+  
+  #confirmation-box h2 {
+    margin-bottom: 20px;
+  }
+  
+  #confirmation-box button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  #confirmation-box button.yes {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+  
+  #confirmation-box button.no {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
