@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: scroll;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Add a preferred font family */
+}
+
+.add-btn {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: #9af299;
+    display: flex;
+    justify-content: center;
+}
+
+.add-btn button {
+    background-color: greenyellow;
+    width: 70px;
+    height: 50px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    background-color: #9af299;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    z-index: 5;
+}
+
+.layout {
+    padding: 0;
+}
+
+.rokad-layout {
+    margin-top: 130px;
+    background-color: #e0ffee;
+    padding: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: auto;
+    margin-bottom: 50px;
+    user-zoom: var(user-zoom);
+    width: 1800px; /* Consider using max-width or media queries for responsiveness */
+}
+
+.topheading {
+    text-align: center;
+}
+
+.topheading2 {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.topheading2 h3 {
+    margin-right: 17px;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #000000;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #000000;
+    text-align: center;
+}
+
+th {
+    background-color: #c0ffee;
+}
+
+p#panchaya_name {
+    margin: 0;
+}
+
+.btn_edit_del {
+    background-color: transparent;
+    width: auto;
+    border: none;
+    outline: none;
+    color: red;
+    font-size: medium;
+}
+
+#Edit_button {
+    color: black;
+}
+
+th:nth-child(4),
+th:nth-child(13),
+td:nth-child(4),
+td:nth-child(13) {
+    width: 300px;
+}
+
+td:nth-child(3),
+td:nth-child(12),
+th:nth-child(17) {
+    max-width: 30px;
+}
+
+.eightth,
+td:nth-child(8) {
+    border-right: 6px double black;
+}
+
+#combinedTable td:nth-child(3) {
+    width: 50px;
+}
+
+.rowblack {
+    background-color: #9af299;
+}
+
+.highlight {
+    background-color: rgb(210, 202, 218);
+    font-style: italic;
+}
+
+th span {
+    display: inline-block;
+    transform: rotate(-90deg);
+    transform-origin: center;
+    white-space: nowrap;
+}
+
+/* Add any additional styles as needed */
+#Praptiya {
+    width: 1000px;
+}
+
+/* Add styles for responsive design if needed */
+@media screen and (max-width: 600px) {
+    /* Example media query for screens less than 600px wide */
+    .rokad-layout {
+        width: 100%;
+    }
+}
