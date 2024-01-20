@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>karyalay Form</title>
     <link rel="stylesheet" href="forms.css">
+    <script>
+        var rbFormCounthhhh = localStorage.getItem('table_zoom');
+
+if (rbFormCounthhhh !== null) {
+    // loadwindow();
+    window.location.href = "../home3.html";
+}
+
+    </script>
 </head>
 
 <body>
@@ -37,10 +46,7 @@
 
     <script>
 
-var rbFormCounthhhh =  localStorage.getItem('rbFormCount');
-        if(rbFormCounthhhh != "" || rbFormCounthhhh === null || rbFormCounthhhh > 0){
-            loadwindow();
-        }
+
         // Function to save data to local storage
         function saveData() {
             saveData2();
@@ -164,11 +170,11 @@ var rbFormCounthhhh =  localStorage.getItem('rbFormCount');
             localStorage.setItem(rbDataKey, rbFormDataJSON);
 
             alert('Data saved to local storage!');
-            localStorage.setItem("reloadhome3",0);
+            localStorage.setItem("reloadhome3", 0);
             loadwindow();
         }
 
-        function loadwindow(){
+        function loadwindow() {
             window.location.href = "../home3.html";
         }
     </script>

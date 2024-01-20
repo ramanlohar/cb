@@ -88,3 +88,30 @@ function highlightRow(td) {
     clickedRow.classList.add("highlight");
   }
 }
+
+document.getElementById("zoomp-btn").addEventListener("click", function() {
+  zoom(1);
+});
+document.getElementById("zoomm-btn").addEventListener("click", function() {
+  zoom(0);
+});
+
+localStorage.setItem("table_zoom", 100);
+
+function zoom(v) {
+  var table_zoom = parseInt(localStorage.getItem("table_zoom")); // Parse to ensure it's a number
+  if (v == 1) {
+    if(table_zoom < 200){
+      table_zoom = table_zoom + 5;
+    }
+  } else {
+    if(table_zoom > 25){
+      table_zoom = table_zoom - 5;
+    }
+  }
+
+  var table = document.querySelector("table");
+  table.style.zoom = table_zoom + "%"; // Add percent sign
+
+  localStorage.setItem("table_zoom", table_zoom);
+}
