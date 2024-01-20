@@ -178,7 +178,7 @@ th span {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 300px; /* Adjust the width as needed */
-    background-color: #ff0000;
+    background-color: #fff2f2;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 10px;
@@ -197,12 +197,12 @@ th span {
   }
   
   #confirmation-box button.yes {
-    background-color: #4CAF50;
-    color: #fff;
-  }
-  
-  #confirmation-box button.no {
-    background-color: #f44336;
+      background-color: #f44336;
+      color: #fff;
+    }
+    
+    #confirmation-box button.no {
+      background-color: #4CAF50;
     color: #fff;
   }
   
