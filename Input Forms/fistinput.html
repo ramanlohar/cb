@@ -9,10 +9,10 @@
     <script>
         var rbFormCounthhhh = localStorage.getItem('table_zoom');
 
-if (rbFormCounthhhh !== null) {
-    // loadwindow();
-    window.location.href = "../home3.html";
-}
+        if (rbFormCounthhhh !== null) {
+            // loadwindow();
+            window.location.href = "../home3.html";
+        }
 
     </script>
 </head>
@@ -22,7 +22,7 @@ if (rbFormCounthhhh !== null) {
 
         <h1>कार्यालय</h1>
         <div class="f-div">
-            <label for="panchayat-name">Panchayat Name</label>
+            <label for="panchayat-name">पंचायत का नाम</label>
             <input type="text" id="panchayat-name">
         </div>
         <div class="f-div">
@@ -31,14 +31,14 @@ if (rbFormCounthhhh !== null) {
         </div>
         <div class="f-div">
             <label for="Year">Year</label>
-            <input type="text" id="year">
+            <input type="text" id="year" placeholder="2023-24" required>
         </div>
         <div class="f-div">
-            <label for="rokadNagadRashi">Nagad Rashi</label>
+            <label for="rokadNagadRashi">नगद राशि</label>
             <input type="text" id="rokadNagadRashi">
         </div>
         <div class="f-div">
-            <label for="rokadBankRashi">Bank Rashi</label>
+            <label for="rokadBankRashi">बैंक राशि</label>
             <input type="text" id="rokadBankRashi">
         </div>
         <button type="button" id="submit-btn" onclick="saveData()">Save</button>
