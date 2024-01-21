@@ -103,10 +103,12 @@ function zoom(v) {
   if (v == 1) {
     if(table_zoom < 200){
       table_zoom = table_zoom + 5;
+      zoom_value_update(table_zoom);
     }
   } else {
     if(table_zoom > 25){
       table_zoom = table_zoom - 5;
+      zoom_value_update(table_zoom);
     }
   }
 
@@ -116,5 +118,9 @@ function zoom(v) {
   localStorage.setItem("table_zoom", table_zoom);
 }
 
-
-
+function zoom_value_update(table_zoom){
+  zoom_value = document.getElementById("zoom_value");
+  // saved_zoom_value =  localStorage.getItem("table_zoom");
+  // zoom_value.innerText = saved_zoom_value + "%";
+  zoom_value.innerText = table_zoom + "%";
+}

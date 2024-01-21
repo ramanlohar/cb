@@ -13,7 +13,7 @@ var reloadhome3 = localStorage.getItem("reloadhome3");
         function editrowdata(form_id) {
             localStorage.setItem("Edit_Form_Id", form_id);
             // localStorage.setItem("Edit_Form_Id");
-            window.location.href = "Input Forms/editinput.html";
+            window.location.href = "HTML/editinput.html";
         }
 
         function deletefromrow(form_id) {
