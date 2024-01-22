@@ -53,7 +53,7 @@ document.body.addEventListener('touchend', function (event) {
     var speed = Math.abs((touchX - startTouchX) / duration);
 
     // If sliding to the left quickly, close the sidebar
-    if (touchX < startTouchX && speed > 0.1) {
+    if (touchX < startTouchX && speed > 0.2) {
         sidebar.style.left = '-250px';
     }
 });
