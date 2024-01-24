@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Select The Mad</h1>
+    <form id="mad_form">
+        <div class="mads">
+            <label for="">Select a mad</label>
+            <select name="mad" id="mad1">
+                <option value="option1">option 1</option>
+                <option value="option2">option 2</option>
+                <option value="option2">option 2</option>
+                <option value="other">other</option>
+            </select>
+            
+            <input type="number">
+        </div>
+
+        <button type="button" id="Addbtn">Add</button>
+        <button type="submit" id="savebtn">Save All</button>
+    </form>
+</body>
+<script>
+
+    const mad_form = document.getElementById("mad_form");
+    const Addbtn = document.getElementById("Addbtn");
+
+    Addbtn.addEventListener("click",()=>{
+        const mads = document.createElement('div')
+        mads.classList.add('mads')
+
+        mads.innerHTML = `<label for="">Select a mad</label>
+            <select name="mad" id="mad1">
+                <option value="option1">option 1</option>
+                <option value="option2">option 2</option>
+                <option value="option2">option 2</option>
+                <option value="other">other</option>
+            </select>
+            <input type="text">
+            <input type="number">`
+            mad_form.appendChild(mads);
+    })
+
+    
+    
+</script>
+</html>
